@@ -4,7 +4,7 @@ import authRouter from "./auth.ts"
 
 const router = express.Router()
 
-const BASE = "api/v1"
+const BASE = "/api/v1"
 
 router.get(`/`, (req,res) => {
     res.status(200).json("APP IS RUNNING")

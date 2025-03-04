@@ -4,10 +4,11 @@ import User from "../models/user.ts"
 
 const router = express.Router()
 
-
-router.get("/get-users", verifyAdmin, async (_req, res) => {
+// Fetch All Users
+router.get("/get-users", verifyAdmin, async (req, res) => {
     try {
-        const users = await User.find()
+        const query = req.query.latest
+        const users = query ? await User.find().sort({_id: -1}).limit(2) : await User.find()
         if (!users) return res.status(500).send("No available users")
         
         return res.status(200).json({message:"Successfully fetched all users", data:users})
@@ -17,6 +18,31 @@ router.get("/get-users", verifyAdmin, async (_req, res) => {
     }
 })
 
+
+// Fetch Users Stats
+router.get("/stats", verifyAdmin, async (req, res) => {
+    try {
+        const date = new Date()
+        const lastYear =  new Date(date.setFullYear(date.getFullYear() - 1))
+
+        const userStats = await User.aggregate([
+            {$match: {createdAt: {$gte: lastYear}}},
+            {$project: {
+                month: {$month: "$createdAt"},
+            }},
+            {
+                $group: {
+                    _id:"$month",
+                    total: {$sum:1}
+                }
+            }
+        ])
+        return res.status(200).json({message:"Successfully fetched all user stats", data:userStats})
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({message: "Error fetching user stats"})
+    }
+})
 
 // Update User route
 router.put("/update/:id", verifyToken, async(req, res) => {
