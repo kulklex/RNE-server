@@ -47,7 +47,9 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
     try {
         const product = await Product.findById(req.params.id)
-        if (!product) res.status(404).send("Product does not exist")
+        if (!product) {
+            return res.status(404).json({message:"Product does not exist"})
+        }
             
         res.status(200).json({message: "Product fetched successfully", data: product})
     } catch (error) {
@@ -61,6 +63,9 @@ router.get("/:id", async (req, res) => {
 router.put("/:id", verifyAdmin, parser.single("image"), async (req, res) => {
     try {
         const updatedProduct = await Product.findByIdAndUpdate(req.params.id, {$set: req.body}, {new: true})
+        if (!updatedProduct) {
+            return res.status(404).json({message:"Product does not exist"})
+        }
         res.status(200).json({message: "Product updated successfully!", data: updatedProduct}) 
     } catch (error) {
         console.error(error)

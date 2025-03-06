@@ -21,7 +21,9 @@ router.post("/", verifyToken, async (req, res) => {
 router.get("/:id", verifyToken, async (req, res) => {
     try {
         const cart = await Cart.findOne({userId: req.params.id})
-        if (!cart) res.status(404).send("Cart does not exist")
+        if (!cart) { 
+            return res.status(404).send("Cart does not exist")
+        }
             
         res.status(200).json({message: "Cart fetched successfully", data: cart})
     } catch (error) {
@@ -35,7 +37,9 @@ router.get("/:id", verifyToken, async (req, res) => {
 router.get("/", verifyToken, async (req, res) => {
     try {
         const cart = await Cart.find()
-        if (!cart) res.status(404).send("Cart does not exist")
+        if (!cart) { 
+            return res.status(404).send("Cart does not exist")
+        }
             
         res.status(200).json({message: "Cart fetched successfully", data: cart})
     } catch (error) {
@@ -49,6 +53,9 @@ router.get("/", verifyToken, async (req, res) => {
 router.put("/:id", verifyToken, async (req, res) => {
     try {
         const updatedProduct = await Cart.findByIdAndUpdate(req.params.id, {$set: req.body}, {new: true})
+        if (!updatedProduct) { 
+            return res.status(404).send("Cart does not exist")
+        }
         res.status(200).json({message: "Cart updated successfully!", data: updatedProduct}) 
     } catch (error) {
         console.error(error)

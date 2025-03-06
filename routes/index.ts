@@ -2,6 +2,8 @@ import express from "express"
 import userRouter from "./user.ts"
 import authRouter from "./auth.ts"
 import productRouter from "./product.ts"
+import cartRouter from "./cart.ts"
+import orderRouter from "./order.ts"
 
 const router = express.Router()
 
@@ -14,6 +16,8 @@ router.get(`/`, (req,res) => {
 router.use(`${BASE}/user`, userRouter)
 router.use(`${BASE}/auth`, authRouter)
 router.use(`${BASE}/products`, productRouter)
+router.use(`${BASE}/carts`, cartRouter)
+router.use(`${BASE}/orders`, orderRouter)
 
 
 
