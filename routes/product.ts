@@ -42,6 +42,7 @@ router.get("/", async (req, res) => {
     }
 })
 
+
 // Fetch product
 router.get("/:id", async (req, res) => {
     try {
