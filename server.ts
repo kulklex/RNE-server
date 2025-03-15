@@ -13,6 +13,9 @@ app.use(cors()); // Enable CORS
 
 app.use("/", routes)
 
+app.get("/", (req, res) => {
+    res.send("SERVER IS RUNNING")
+})
 
 // Start the server
 const Port:number = 3000
