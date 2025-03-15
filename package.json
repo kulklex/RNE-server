@@ -2,7 +2,6 @@
   "name": "rneserver",
   "description": "Server for a react native e-commerce",
   "main": "server.ts",
-  "exec": "ts-node server.ts",
   "type": "module",
   "watch": [
     "src"
@@ -19,6 +18,7 @@
   "dependencies": {
     "@types/bcrypt": "^5.0.2",
     "@types/jsonwebtoken": "^9.0.9",
+    "@types/node": "^22.13.10",
     "bcrypt": "^5.1.1",
     "bcryptjs": "^3.0.2",
     "body-parser": "^1.20.3",

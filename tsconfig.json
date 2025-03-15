@@ -2,15 +2,14 @@
     "compilerOptions": {
       "noEmit": true,
       "allowImportingTsExtensions": true,
-      "module": "ESNext",   // Use ES Modules
-      "target": "ES6",
+      "module": "ESNext",
       "moduleResolution": "node",
+      "target": "ESNext",
       "esModuleInterop": true, // Allow default imports from CommonJS modules
       "skipLibCheck": true,
-      "strict": false,
-      "outDir": "./dist"
+      "strict": true,
     },
-    "include": ["src/**/*.ts", "*.ts", "**/*.ts"],
+    "include": ["src/**/*", "src/**/*.ts", "*.ts", "**/*.ts"],
     "exclude": ["node_modules"]
   }
   
