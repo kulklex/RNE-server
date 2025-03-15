@@ -9,6 +9,7 @@
   ],
   "ext": "ts",
   "scripts": {
+    "start": "node server.ts",
     "dev": "nodemon -r ts-node/register server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
