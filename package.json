@@ -8,9 +8,11 @@
   ],
   "ext": "ts",
   "scripts": {
-    "start": "ts-node server.ts",
+    "build": "tsc",
+    "start": "ts-node src/server.ts",
     "dev": "nodemon -r ts-node/register server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
+    
   },
   "keywords": [],
   "author": "",
