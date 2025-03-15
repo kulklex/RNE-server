@@ -9,7 +9,7 @@
   "ext": "ts",
   "scripts": {
     "build": "tsc",
-    "start": "ts-node server.ts",
+    "start": "node dist/server.js",
     "dev": "nodemon server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -31,13 +31,13 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.11.0",
     "multer": "^1.4.5-lts.1",
-    "multer-storage-cloudinary": "^4.0.0",
-    "nodemon": "^3.1.9"
+    "multer-storage-cloudinary": "^4.0.0"
   },
   "devDependencies": {
     "@types/body-parser": "^1.19.5",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
+    "nodemon": "^3.1.9",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.2"
   }
