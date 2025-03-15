@@ -9,7 +9,7 @@
       "skipLibCheck": true,
       "strict": true,
     },
-    "include": ["src/**/*", "src/**/*.ts", "*.ts", "**/*.ts"],
+    "include": ["src/**/*"],
     "exclude": ["node_modules"]
   }
   
