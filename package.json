@@ -12,7 +12,6 @@
     "start": "ts-node server.ts",
     "dev": "nodemon -r ts-node/register server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
-    
   },
   "keywords": [],
   "author": "",
@@ -27,6 +26,7 @@
     "cloudinary": "^1.21.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
+    "esm": "^3.2.25",
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.11.0",
